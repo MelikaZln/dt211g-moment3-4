@@ -1,0 +1,348 @@
+@use 'base';
+@use 'keyframes';
+
+@mixin add-text-shadow($font-size, $color) {
+  font-size: $font-size;
+
+  @if $font-size > 40px {
+    text-shadow: 2px 2px $color;
+  }
+}
+
+.navbar {
+  background-color: base.$secondary-color;
+  color: base.$primary-color;
+  position: relative;
+  .hamburger{
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    border: unset;
+    background: unset;
+    cursor: pointer;
+    margin-top: -50px;
+    color: base.$secondary-color;
+    @media screen and (min-width: base.$breakpoint-medium) {
+      display: none;
+    }  
+    .icon-close{
+      display: none;
+    }
+  }
+  .navbar-items{
+    @media screen and (min-width: base.$breakpoint-small) and (max-width: base.$breakpoint-medium) {
+      display: none;
+    }
+  @media screen and (max-width: base.$breakpoint-small) {
+      display: none;
+    }
+  }
+  ul{
+    margin: unset;
+    list-style: none;
+    padding-top: 4px;
+    padding-bottom: 1em;
+    display: flex;
+  }
+  a{
+    padding: 1em;
+    color: inherit;
+    text-decoration: none;
+  }
+  a:hover{
+    background-color: lighten(base.$secondary-color, 30%)
+  }
+  }
+.navbar.open{
+  display: block;
+  .hamburger{
+    .icon-close{
+      margin-top: 18px;
+      display: block;
+    }
+  }
+  ul{
+    display: block;
+  }
+  a{
+    display: block;
+  }
+}
+
+
+body {
+    font-family: base.$body-font;
+    color: base.$secondary-color;
+    margin: unset;
+}
+
+
+
+h1{
+    text-align: center;
+    margin-top: 40px;
+    font-size: 46px;
+    @media screen and (max-width: base.$breakpoint-small) {
+        font-size: 26px;
+      }
+      
+      @media screen and (min-width: base.$breakpoint-small) and (max-width: base.$breakpoint-medium) {
+        font-size: 38px;
+      }
+}
+p{
+    font-size: 24px;
+    margin-left: 30px;
+    margin-right: 30px;
+    margin-bottom: 40px;
+          
+    @media screen and (min-width: base.$breakpoint-small) and (max-width: base.$breakpoint-medium) {
+        font-size: 20px;
+        margin-left: 20px;
+        margin-right: 30px;
+        margin-bottom: 30px;
+
+      }
+    @media screen and (max-width: base.$breakpoint-small) {
+        font-size: 16px;
+        margin-left: 10px;
+        margin-right: 10px;
+        margin-bottom: 20px;
+      }
+    }
+
+div{
+    img{
+        width: 700px; 
+        display: flex;
+        flex-direction: row;
+        margin-left: auto;
+        margin-right: auto;
+ 
+        margin-bottom: 80px;
+        @media screen and (min-width: base.$breakpoint-small) and (max-width: base.$breakpoint-medium) {
+            width: 400px; 
+            margin-bottom: 40px;
+          }
+        @media screen and (max-width: base.$breakpoint-small) {
+            width: 250px; 
+            margin-bottom: 20px;
+          }
+    }
+    
+}
+ul{
+    font-size: 26px;
+    @media screen and (min-width: base.$breakpoint-small) and (max-width: base.$breakpoint-medium) {
+    font-size: 22px;
+
+      }
+    @media screen and (max-width: base.$breakpoint-small) {
+        font-size: 18px;
+      }
+
+    li{ font-size: 20px;
+       margin-top: 20px;
+       @media screen and (min-width: base.$breakpoint-small) and (max-width: base.$breakpoint-medium) {
+        font-size: 18px;
+        margin-top: 15px;
+
+          }
+        @media screen and (max-width: base.$breakpoint-small) {
+            font-size: 16px;
+            margin-top: 12px;
+          }
+    }
+
+}
+.message1 {
+    font-size: 24px;
+    margin-left: 30px;
+    margin-right: 30px;
+    @media screen and (min-width: base.$breakpoint-small) and (max-width: base.$breakpoint-medium) {
+        font-size: 20px;
+        margin-left: 20px;
+        margin-right: 30px;
+         
+      }
+    @media screen and (max-width: base.$breakpoint-small) {
+        font-size: 16px;
+        margin-left: 10px;
+        margin-right: 10px;
+
+      }
+}
+.message2{
+    @extend .message1;
+    font-style: italic;
+
+}
+.message3{
+    @extend .message1;
+    color: bisque;
+}
+.message3:hover{
+    transition: 0.5s;
+    color: gold;
+}
+.globalVillagePhoto img:hover {
+    transition: 0.5s;
+    border-radius: 50%;
+  }
+// dark and light mode added
+@media (prefers-color-scheme: dark){
+    body {
+        color: base.$secondary-color-dark;
+        background-color: base.$primary-color-dark;
+    }
+    div {
+        a{
+            color: base.$primary-color-dark;
+            background-color: base.$secondary-color-dark;
+        }
+    }
+    .navbar{
+      background-color: base.$secondary-color-dark;
+      color: base.$primary-color-dark;
+    }
+  }
+.animation-demo{
+  width: 200px;
+  height: 200px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgb(168, 101, 14);
+  margin-top: 10px;
+  margin-bottom: 100px;
+  border-radius: 50%;
+  animation: colorChange 0.5s 0s infinite alternate;
+  @media screen and (min-width: base.$breakpoint-small) and (max-width: base.$breakpoint-medium) {
+    width: 150px;
+    height: 150px;
+    margin-top: 8px;
+    margin-bottom: 80px;
+    background-color: rgb(237, 68, 30);
+  }
+@media screen and (max-width: base.$breakpoint-small) {
+    width: 100px;
+    height: 100px;
+    margin-top: 8px;
+    margin-bottom: 40px;
+  }
+}
+.container{
+  position: relative;
+  height: 200px;
+  @media screen and (min-width: base.$breakpoint-small) and (max-width: base.$breakpoint-medium) {
+    height: 150px;
+  }
+@media screen and (max-width: base.$breakpoint-small) {
+  height: 100px;
+  }
+  .animation-knapp{
+    position: absolute;
+    margin: unset;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    padding-bottom: unset;
+      button{
+      padding: 8px;
+      width: 400px;
+      background-color: rgb(24, 16, 5);
+      border: none;
+      border-radius: 30px;
+      font-size: 24px;
+      margin: unset;
+      color: base.$tertiary-color;
+      @media screen and (min-width: base.$breakpoint-small) and (max-width: base.$breakpoint-medium) {
+        padding: 9px;
+        width: 320px;
+        font-size: 18px;
+      }
+      @media screen and (max-width: base.$breakpoint-small) {
+        padding: 6px;
+        width: 250px;
+        font-size: 14px;
+      }
+    }
+    
+  }
+  .button-wrapper{
+    position: absolute;
+    margin-top: 430px;
+    top: 50%;
+    left: 47%;
+    padding-bottom: 40px;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    @media screen and (min-width: base.$breakpoint-small) and (max-width: base.$breakpoint-medium) {
+      margin-top: 350px;
+      padding-bottom: 30px;
+      padding-top: 30px;
+    }
+    @media screen and (max-width: base.$breakpoint-small) {
+      margin-top: 230px;
+      padding-bottom: 10px;
+      padding-top: 10px;
+    }
+    #check{
+      padding: unset;
+      margin: unset;
+      opacity: 0;
+      width: 50px;
+      left: 70%;
+      @media screen and (min-width: base.$breakpoint-small) and (max-width: base.$breakpoint-medium) {
+        width: 40px;
+      }
+      @media screen and (max-width: base.$breakpoint-small) {
+        width: 30px;
+      }
+
+    }
+      button{
+      padding: 8px;
+      width: 200px;
+      background-color: rgb(24, 16, 5);
+      border: none;
+      border-radius: 30px;
+      font-size: 24px;
+      color: base.$tertiary-color;
+      @media screen and (min-width: base.$breakpoint-small) and (max-width: base.$breakpoint-medium) {
+        padding: 8px;
+        width: 150px;
+        font-size: 18px;
+      }
+      @media screen and (max-width: base.$breakpoint-small) {
+        font-size: 14px;
+        width: 100px;
+        padding: 6px;
+        margin-bottom: 30px;
+      }
+    }
+
+  }
+}
+.ani-btn:hover{
+  animation: clickChange 1s ;
+}
+animation-bild{
+  margin-left: auto;
+  margin-right: auto;
+  img{
+    width: 400px;
+    
+  }
+}
+.animation-bild:hover{
+  animation: rotationChange 0.8s 0s infinite alternate;
+}
+
+
+.btnAnimation{
+  animation: animate 2s ease-in forwards ;
+}
+.checkAnimation{
+  animation: animateCheck 2s 0.7s ease-in forwards ;
+}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="sv"> <!--har kodat på svenska-->
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Moment3</title>
+    <script>
+      var exports = { __esModule: true };
+    </script>
+    <!--olika css filer och js filer har använts för att visa hur gulp funkar-->
+
+    <link rel="stylesheet" href="css/style.css" />
+
+
+  <header>
+    <!--menybaren-->
+    <nav class="navbar" id="navbar">
+      <button class="hamburger" id="hamburger-toggle"> 
+        <div class="icon-open">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-menu-2" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#DABC8B" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M4 6l16 0" />
+            <path d="M4 12l16 0" />
+            <path d="M4 18l16 0" />
+          </svg>
+        </div>
+        <div class="icon-close">
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-x" width="44" height="44" viewBox="0 0 24 24" stroke-width="1.5" stroke="#827053" fill="none" stroke-linecap="round" stroke-linejoin="round">
+            <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+            <path d="M18 6l-12 12" />
+            <path d="M6 6l12 12" />
+          </svg>
+        </div>
+      </button>
+      <ul class="navbar-items">
+      
+        <li>
+          <a href="index.html">Moment3</a>
+        </li>
+        <li>
+          <a href="sass.html">SASS</a>
+        </li>
+        <li>
+          <a href="Animering.html">Animering</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <body>
+    <!--uppgiftsbeskrivningen-->
+    <h1>Moment 3</h1>
+    <p class="textMoment3"> I den här uppgiften ska vi lära oss att arbeta med sass, det är första gången jag gör det. Jag tror att det ska bli kul!
+      I den här sidan kan ni se två bilder jag själv har tagit från Global Village i Dubai.
+    </p>
+    <div class="globalVillagePhoto">
+      <img src="images/7.avif" alt="Italien" class="bild" />
+      <img src="images/6.avif" alt="Global village" class="bild" />
+    </div>
+
+  
+  <script type="module" >  
+    const hamburgerToggle = document.getElementById("hamburger-toggle");
+    const navbar = document.getElementById("navbar");
+
+    function onHamburgerClick(){
+        if(navbar.classList.contains("open")){
+          navbar.classList.remove("open");
+ 
+
+        } else{
+          navbar.classList.add("open");
+
+        }
+        
+      };
+    hamburgerToggle.addEventListener("click", onHamburgerClick);
+  </script>
+  </body>
+</html>
